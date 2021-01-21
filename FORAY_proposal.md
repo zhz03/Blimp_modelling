@@ -41,7 +41,7 @@ There are no specific research that really focus on the blimp design pipeline an
 While the bigger picture is to focus on the design problem of blimps. We would like to narrow down this problem a little bit. We focus on developing a design tool that help to design indoor, general, safe, customized blimps. To be more specific, there are three parts of solving this problem. 
 
 - The first part is to developing a human interface that could transfer intuitive visualized design into system parameters by analyzing geometry features or extracting customized information.
-- The second part is to develop a evaluation and analysis system that could evaluate an could evaluate the performance of designed blimp based on their design parameters. 
+- The second part is to develop a evaluation and analysis system that could evaluate an could evaluate the performance of designed blimp based on their design parameters. (What is the optimal configuration to follow the trajectories.)
 - The third and final part is to develop an optimized system that could automatically refine and modify the preliminary human design and controller design to gain a better performance. 
 
 ### How does solving this subproblem lead towards solving the big picture problem?
