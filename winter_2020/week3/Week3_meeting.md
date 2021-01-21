@@ -13,16 +13,16 @@ Some discussion about rules:
 
 - No use of adhesives for capturing game balls **// We need to design a new capture mechanism**
 - Operators will operate without direct visual line of sight. **// If we were to have two operators, then operators should use the FPV camera to control and drive the blimps**
-- Sensory tools / equipment may be placed on walls or hoops by the blimps at the start of game play. **// We can process everything using the ground equipment, for example: we can use ground computer to process the images from on-board cameras, we can also use ground sensors to do localization and detection.** 
+- Sensory tools / equipment may be placed on walls or hoops by the blimps at the start of game play. **// We can process everything using the ground equipment, for example: we can use the ground computer to process the images from on-board cameras, we can also use ground sensors to do localization and detection.** 
 - Any placed equipment will be reset between games by the team that placed them. **// The ground equipment should be easy to deploy and remove**
 - Hoop shapes will be as follows // **hoop shapes are different, which puts forward more requirements on our detection algorithm**
 
 Here is the rules that we are not sure about:
 
-- ***For all vehicles, negative buoyancy may not exceed 100 grams.*** // **ask Ankur about it**, we have some argument about it
-  - One point of view: the total weight of the all the electronics should be less then 100 grams
-  - The other point of view:  the reminding net weight (nw)= Total weight (tw)- positive buoyancy (pb) $nw = tw - pb$ should be less then 100 grams 
-  - We are not sure about which one is the right interpretation, can you elaborate that,Ankur? 
+- *For all vehicles, negative buoyancy may not exceed 100 grams.* /**/ ask Ankur about it**, we have some argument about it
+  - One point of view: the total weight of all the electronics should be less than 100 grams
+  - The other point of view: the remain net weight (nw)= Total weight (tw)- positive buoyancy (pb) $nw = tw - pb$ should be less than 100 grams
+  - We are not sure about which one is the right interpretation, can you elaborate that, Ankur?
 
 ## Progress
 
@@ -50,7 +50,7 @@ Here is the rules that we are not sure about:
   - Working on different algorithms
   - To finish the demo for green balloon
 
-- Peguen:
+- Pehuen:
   - new proposal about FORAY: https://docs.google.com/document/d/1T9Jstf9bFaaCuLVodKpnKnNDfQBU_G5t5yoXpAu6sOs/edit#
 
 - Owen:
