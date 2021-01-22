@@ -1,5 +1,7 @@
 # Week 3 meeting agenda
 
+## Wednesday meeting agenda
+
 1. Discuss about the new rules
 2. Talk about everyone's progress
 3. Talk about any difficulties that you want to discuss with the group
@@ -71,3 +73,10 @@ Provide pictures to perception team.
 
 See if we can get schematics from GMU team and modify from that. 
 
+## Friday meeting agenda
+
+1. Summarize what we have done in this week
+
+2. Literature review section (talk about your recommended paper)
+
+   
