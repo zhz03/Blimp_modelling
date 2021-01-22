@@ -77,6 +77,8 @@ See if we can get schematics from GMU team and modify from that.
 
 1. Summarize what we have done in this week
 
-2. Literature review section (talk about your recommended paper)
+2. Summarize your ideas and thoughts 
+
+3. Literature review section (talk about your recommended paper)
 
    
