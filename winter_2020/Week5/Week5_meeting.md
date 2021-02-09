@@ -25,5 +25,37 @@ As for the capture mechanism:
 
 - They are using carbon fiber material to do it
 
+## Goal and plan for each team member
 
+Parth:
 
+- Using camera to do localization indoor
+
+- On board processing
+
+Kyle:
+
+- Sort of clean up the code (parameters space / different configuration)
+
+- Make the chip up and running (Video from GMU) reprogram
+
+Yifei:
+
+- fit the algorithm to detect the real pictures
+
+- Give eps-cam
+
+Ethan: 
+
+- Make the AI deck running
+- Setup crazyfile
+
+## Wednesday meeting
+
+- Talk about your progress
+- Talk about any difficulties, bring up the most difficult part and discuss about it
+- Talk about how do we need help from others
+
+## Friday meeting
+
+[https://www.why.is/svar.php?id=5521#:~:text=There%20is%20a%20relationship%20between,air%2C%20the%20greater%20the%20buoyancy.](https://www.why.is/svar.php?id=5521#:~:text=There is a relationship between,air%2C the greater the buoyancy.)
