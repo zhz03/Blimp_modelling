@@ -19,3 +19,9 @@ Parth:
 
 
 Ethan:
+
+## Wednesday_meeting:
+
+- Talk about your progress
+- Talk about any difficulties, bring up the most difficult part and discuss about it
+- Talk about how do we need help from others
