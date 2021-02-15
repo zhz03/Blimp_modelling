@@ -1,0 +1,28 @@
+@article{gupta2018propeller,
+  title={Propeller force-constant modeling for multirotor uavs from experimental estimation of inflow velocity},
+  author={Gupta, Gaurang and Abdallah, Shaaban},
+  journal={International Journal of Aerospace Engineering},
+  volume={2018},
+  year={2018},
+  publisher={Hindawi}
+}
+
+@article{staples2013propeller,
+  title={Propeller Static \& Dynamic Thrust Calculation},
+  author={Staples, Gabriel},
+  journal={Electric RC Aircraft Guy},
+  year={2013}
+}
+
+https://www.precisionmicrodrives.com/content/dc-motor-speed-voltage-and-torque-relationships/
+https://www.motioncontroltips.com/torque-equation/#:~:text=DC%20motors%20are%20relatively%20simple,the%20load%20on%20the%20motor.
+
+@book{book,
+  author    = {Cyril W Lander}, 
+  title     = {Power electronics},
+  publisher = {London: Mc Graw Hill International UK.},
+  year      = 1993,
+  edition   = 3,
+  note      = {},
+  isbn      = {0-07-707714-8}
+}
