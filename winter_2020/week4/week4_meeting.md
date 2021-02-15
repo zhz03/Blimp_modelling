@@ -1,7 +1,12 @@
 # Week4_meeting
 
+<<<<<<<
 ## Monday meeting:
 
+=======
+## Monday meeting
+
+>>>>>>>
 - Talk about goal
 - Talk about what you want to do this week 
 - Talk about how do you want to reach that goal
@@ -48,8 +53,13 @@ Kyle:
 - PWM output - motor driver - DC motor 
 - Get ROV setup up and running 
 
+<<<<<<<
 ## Wednesday meeting:
+=======
+## Wednesday meeting
+>>>>>>>
 
+<<<<<<<
 Kyle:
 
 - sort out the code: parameter space and different configuration
@@ -96,3 +106,11 @@ not yet decided
 
  
 
+
+=======
+- Questions that you guys want to ask on Friday meeting with Joseph, GMU
+
+- Talk about your progress
+- Talk about any difficulties, bring up the most difficult part and discuss about it
+- Talk about how do we need help from others
+>>>>>>>
