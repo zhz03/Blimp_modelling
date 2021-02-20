@@ -44,9 +44,9 @@ def epllipsoid_CSA_cal(x,y):
 
     This function is to calculate the CSA(Cross sectional area) of ellipse
     ----------
-    x : semi-magjor axis of ellipse
+    x : semi-major axis of ellipse
         in (m)
-    y : semi-minor anxis of ellipse
+    y : semi-minor axis of ellipse
         in (m)
 
     Returns CSA
@@ -61,6 +61,49 @@ def triangle_volume_Cal(a,b,c):
     V = a*b/2 * c * ratio
     return V    
 
+
+
+
+
+def sphere_surface_area(r): 
+    """
+    Calculates the surface area of the sphere
+    ------------
+    Input- 
+    r -> Radius of the sphere in meters (m)
+ 
+    Output- 
+    surface_area -> Surface area of the sphere in meters (m)
+    """
+
+    surface_area = (4*pi*r**2)/3
+    return surface_area
+
+
+
+def rel_error(a,b):
+    """
+    Calculates the error between the 2 numbers 
+    
+    Input- 
+    a -> 1st number
+    b -> 2nd number 
+
+    Output-
+    error -> Difference between the 2 numbers
+    """
+    error = abs(a - b)
+    return error 
+
+
+def test_hypo(dim):
+    deflated_area = 2 * epllipsoid_CSA_cal(dim[0],dim[1]) 
+    inflated_area = sphere_surface_area(max(dim)) 
+    error = rel_error(deflated_area,inflated_area)
+    print(f"Deflated Area {deflated_area} meter square")  
+    print(f"Inflated Area {Inflated_area} meter square") 
+    print(f"Error {error} meter square") 
+ 
 #def general_model(a,b,c):
     
     
