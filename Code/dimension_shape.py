@@ -39,7 +39,7 @@ def ellipsoid_volume_Cal(a,b,c):
     V = 4 * pi * a * b * c /3
     return V
 
-def epllipsoid_CSA_cal(x,y):
+def ellipsoid_CSA_cal(x,y):
     """
 
     This function is to calculate the CSA(Cross sectional area) of ellipse
@@ -60,8 +60,6 @@ def triangle_volume_Cal(a,b,c):
     ratio = pi*(b/2)*(c/2)/(b * c)
     V = a*b/2 * c * ratio
     return V    
-
-
 
 
 
@@ -92,17 +90,27 @@ def rel_error(a,b):
     Output-
     error -> Difference between the 2 numbers
     """
-    error = abs(a - b)
+    error = a - b
     return error 
 
 
 def test_hypo(dim):
-    deflated_area = 2 * epllipsoid_CSA_cal(dim[0],dim[1]) 
+    """
+    Test the hypothesis: Surface area of deflated area is smaller than or equal to surface area of inflated sphere
+
+    Input-
+    dim -> Dimension of the Object. 
+           Dim[0] : Semi Major Axis in meters (m)
+           Dim[1] : Semi Minor Axis in meters (m)
+    """
+    deflated_area = 2 * ellipsoid_CSA_cal(dim[0],dim[1]) 
     inflated_area = sphere_surface_area(max(dim)) 
-    error = rel_error(deflated_area,inflated_area)
+    error = rel_error(inflated_area,deflated_area)
+    assert(deflated_area <= inflated_area)
     print(f"Deflated Area {deflated_area} meter square")  
-    print(f"Inflated Area {Inflated_area} meter square") 
+    print(f"Inflated Area {inflated_area} meter square") 
     print(f"Error {error} meter square") 
+    return 
  
 #def general_model(a,b,c):
     
@@ -172,3 +180,20 @@ if __name__=="__main__":
     tick = radi * 2 * 0.599
     """ 
 
+    # Red Spherical balloon
+    print("CASE I - RED SPHERICAL BALLOON") 
+    radi = (88 / 2) * 0.01 # Meters
+    dim = [radi,radi]
+    test_hypo(dim)
+
+    print("\n")
+
+    print("CASE II - BLACK SPHERICAL BALLOON")
+    radi = (80 / 2) * 0.01 # Meters
+    dim = [radi,radi]
+    test_hypo(dim)
+
+
+    
+
+    print("DONE") 
