@@ -76,7 +76,7 @@ def sphere_surface_area(r):
     surface_area -> Surface area of the sphere in meters (m)
     """
 
-    surface_area = (4*pi*r**2)/3
+    surface_area = 4*pi*(r**2)
     return surface_area
 
 
@@ -153,6 +153,7 @@ if __name__=="__main__":
     volume3 = volume_cal(test_weight_3) # m^3
     error_V3 = volume3 - V3    
     error_rate3 = error_V3/volume3
+    """
     """ 
     # case 5: triangle
     test_weight_4 = 0.0576 + 0.0317
@@ -169,3 +170,5 @@ if __name__=="__main__":
     eq_cir = a4 * b4/2
     radi = np.sqrt(eq_cir/pi)
     tick = radi * 2 * 0.599
+    """ 
+
