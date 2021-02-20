@@ -100,8 +100,8 @@ def test_hypo(dim):
 
     Input-
     dim -> Dimension of the Object. 
-           Dim[0] : Semi Major Axis in meters (m)
-           Dim[1] : Semi Minor Axis in meters (m)
+           Dim[0] : Half of the Semi Major Axis in meters (m)
+           Dim[1] : Half of the Semi Minor Axis in meters (m)
     """
     deflated_area = 2 * ellipsoid_CSA_cal(dim[0],dim[1]) 
     inflated_area = sphere_surface_area(max(dim)) 
@@ -193,7 +193,21 @@ if __name__=="__main__":
     dim = [radi,radi]
     test_hypo(dim)
 
+    print("\n")
+
+    print("CASE III - HEART SHAPED BALLOON")
+    a = (87.6 / 2) * 0.01 # Meters
+    b = (85 / 2) * 0.01 # Meters
+    dim = [a,b]
+    test_hypo(dim)
+
+    print("\n")
+
+    print("CASE IV - CLOWN FISH")
+    a = (313 / 2) * 0.01 # Meters
+    b = (124) * 0.01 # Meters
+    dim = [a,b]
+    test_hypo(dim)
 
     
-
     print("DONE") 
