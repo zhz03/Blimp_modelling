@@ -116,14 +116,17 @@ if __name__=="__main__":
     volume = volume_cal(test_weight) # m^3
     error_V = volume - V
     error_rate = error_V/volume
-    surface_area = 2*ellipsoid_CSA_cal(a,b)
+
+    a_deflate = 54/2 * 0.01  
+    b_deflate = 29.1/2 * 0.01
+    surface_area = 2*ellipsoid_CSA_cal(a_deflate,b_deflate)
     sphere_radius = radius_cal(surface_area)
-    ratio = sphere_radius / max(a,b)
+    ratio = sphere_radius / max(a_deflate,b_deflate)
     Volume_sphere = sphere_volume_cal(sphere_radius)
     error = rel_error(Volume_sphere,V)
     error_ratio = rel_error(ratio,0.7627)
     assert(abs(error) <= 0.1)
-    assert(abs(error_ratio) <= 0.1)
+    assert(abs(error_ratio) <= 0.25)
     print(f"Ratio of radii {ratio}")
     print(f"Volume_arb {V} meter cube")
     print(f"Volume_sphere {Volume_sphere} meter cube")
@@ -143,9 +146,12 @@ if __name__=="__main__":
     volume1 = volume_cal(test_weight_1) # m^3
     error_V1 = volume1 - V1
     error_rate1 = error_V1/volume1
-    surface_area = 2*ellipsoid_CSA_cal(a1,b1)
+
+    a_deflate = 0.435/2
+    b_deflate = 0.435/2
+    surface_area = 2*ellipsoid_CSA_cal(a_deflate,b_deflate)
     sphere_radius = radius_cal(surface_area)
-    ratio = sphere_radius / max(a1,b1)
+    ratio = sphere_radius / max(a_deflate,b_deflate)
     Volume_sphere = sphere_volume_cal(sphere_radius)
     error = rel_error(Volume_sphere,V1)
     error_ratio = rel_error(ratio,0.7627)
@@ -168,9 +174,12 @@ if __name__=="__main__":
     volume2 = volume_cal(test_weight_2) # m^3
     error_V2 = volume2 - V2    
     error_rate2 = error_V2/volume2
-    surface_area = 2*ellipsoid_CSA_cal(a2,b2)
+    
+    a_deflate = 80 / 2 * 0.01
+    b_deflate = 80 / 2 * 0.01
+    surface_area = 2*ellipsoid_CSA_cal(a_deflate,b_deflate)
     sphere_radius = radius_cal(surface_area)
-    ratio = sphere_radius / max(a2,b2)
+    ratio = sphere_radius / max(a_deflate,b_deflate)
     Volume_sphere = sphere_volume_cal(sphere_radius)
     error = rel_error(Volume_sphere,V2)
     error_ratio = rel_error(ratio,0.7627)
@@ -193,10 +202,12 @@ if __name__=="__main__":
     volume3 = volume_cal(test_weight_3) # m^3
     error_V3 = volume3 - V3    
     error_rate3 = error_V3/volume3
-    
-    surface_area = 2*ellipsoid_CSA_cal(a3,b3)
+   
+    a_deflate = (88 / 2) * 0.01
+    b_deflate = (88 / 2) * 0.01
+    surface_area = 2*ellipsoid_CSA_cal(a_deflate,b_deflate)
     sphere_radius = radius_cal(surface_area)
-    ratio = sphere_radius / max(a3,b3)
+    ratio = sphere_radius / max(a_deflate,b_deflate)
     Volume_sphere = sphere_volume_cal(sphere_radius)
     error = rel_error(Volume_sphere,V3)
     error_ratio = rel_error(ratio,0.7627)
@@ -226,9 +237,11 @@ if __name__=="__main__":
     radi = np.sqrt(eq_cir/pi)
     tick = radi * 2 * 0.599
 
-    surface_area = 2*ellipsoid_CSA_cal(a4/2,b4/2)
+    a_deflate =  85 / 2 * 0.01
+    b_deflate =  88 / 2 * 0.01
+    surface_area = 2*ellipsoid_CSA_cal(a_deflate,b_deflate)
     sphere_radius = radius_cal(surface_area)
-    ratio = sphere_radius / radi
+    ratio = sphere_radius / max(a_deflate,b_deflate)
     Volume_sphere = sphere_volume_cal(sphere_radius)
     error = rel_error(Volume_sphere,V4)
     error_ratio = rel_error(ratio,0.7627)
