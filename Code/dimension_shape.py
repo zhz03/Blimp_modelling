@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Created on Mon Feb  8 21:53:25 2021
@@ -12,8 +12,7 @@ import numpy as np
 global pi 
 pi = 3.14159265
 
-def volume_cal(lift_weight):
-    
+def volume_cal(lift_weight): 
     """
     
     """
@@ -62,21 +61,31 @@ def triangle_volume_Cal(a,b,c):
     return V    
 
 
-
-def sphere_surface_area(r): 
+def sphere_volume_cal(radius):
     """
-    Calculates the surface area of the sphere
-    ------------
-    Input- 
-    r -> Radius of the sphere in meters (m)
+    Calculates the volume of the sphere
+    -------
+    Input-
+    radius -> Radius of the sphere in meter
+    
+    Output-
+    V -> Volume of the sphere in meter cube
+    """
+    V = (4 * pi * radius ** 3) / 3
+    return V
+
+def radius_cal(surface_area):
+    """
+    Calculates the radius of the Inflated Spherical Balloon
+    ------
+    Input-
+    surface_area -> The surface area of the deflated balloon in meters
  
-    Output- 
-    surface_area -> Surface area of the sphere in meters (m)
+    Output-
+    radius -> Radius of the Inflated Spherical Balloon in meters
     """
-
-    surface_area = 4*pi*(r**2)
-    return surface_area
-
+    radius = (surface_area / (4*pi)) ** 0.5
+    return radius
 
 
 def rel_error(a,b):
@@ -94,30 +103,11 @@ def rel_error(a,b):
     return error 
 
 
-def test_hypo(dim):
-    """
-    Test the hypothesis: Surface area of deflated area is smaller than or equal to surface area of inflated sphere
-
-    Input-
-    dim -> Dimension of the Object. 
-           Dim[0] : Half of the Semi Major Axis in meters (m)
-           Dim[1] : Half of the Semi Minor Axis in meters (m)
-    """
-    deflated_area = 2 * ellipsoid_CSA_cal(dim[0],dim[1]) 
-    inflated_area = sphere_surface_area(max(dim)) 
-    error = rel_error(inflated_area,deflated_area)
-    assert(deflated_area <= inflated_area)
-    print(f"Deflated Area {deflated_area} meter square")  
-    print(f"Inflated Area {inflated_area} meter square") 
-    print(f"Error {error} meter square") 
-    return 
- 
-#def general_model(a,b,c):
-    
     
 if __name__=="__main__":
-    """
+   
     # case 1: white
+    print("WHITE")
     test_weight = 0.022 + 0.014 #kg
     a = 0.385/2
     b = 0.40/2
@@ -126,10 +116,23 @@ if __name__=="__main__":
     volume = volume_cal(test_weight) # m^3
     error_V = volume - V
     error_rate = error_V/volume
-    
-    CSA_ab = epllipsoid_CSA_cal(a,b)
-    
-    # case 2: silver 
+    surface_area = 2*ellipsoid_CSA_cal(a,b)
+    sphere_radius = radius_cal(surface_area)
+    ratio = sphere_radius / max(a,b)
+    Volume_sphere = sphere_volume_cal(sphere_radius)
+    error = rel_error(Volume_sphere,V)
+    error_ratio = rel_error(ratio,0.7627)
+    assert(abs(error) <= 0.1)
+    assert(abs(error_ratio) <= 0.1)
+    print(f"Ratio of radii {ratio}")
+    print(f"Volume_arb {V} meter cube")
+    print(f"Volume_sphere {Volume_sphere} meter cube")
+    print(f"Error {error} meter square")
+    print("\n") 
+
+ 
+    # case 2: silver
+    print("SILVER") 
     test_weight_1 = 0.0046 + 0.009 # kg
     test_weight_1 = 0.0048 + 0.009 # kg
     a1 = 0.34/2 #30+4.5cm
@@ -140,8 +143,23 @@ if __name__=="__main__":
     volume1 = volume_cal(test_weight_1) # m^3
     error_V1 = volume1 - V1
     error_rate1 = error_V1/volume1
-    
+    surface_area = 2*ellipsoid_CSA_cal(a1,b1)
+    sphere_radius = radius_cal(surface_area)
+    ratio = sphere_radius / max(a1,b1)
+    Volume_sphere = sphere_volume_cal(sphere_radius)
+    error = rel_error(Volume_sphere,V1)
+    error_ratio = rel_error(ratio,0.7627)
+    assert(abs(error) <= 0.1)
+    assert(abs(error_ratio) <= 0.1)
+    print(f"Ratio of radii {ratio}")
+    print(f"Volume_arb {V1} meter cube")
+    print(f"Volume_sphere {Volume_sphere} meter cube")
+    print(f"Error {error} meter square")
+    print("\n") 
+
+
     #case 3: black
+    print("BLACK")
     test_weight_2 = 0.0435 + 0.0335
     a2 = 0.62/2
     b2 = 0.635/2
@@ -150,9 +168,23 @@ if __name__=="__main__":
     volume2 = volume_cal(test_weight_2) # m^3
     error_V2 = volume2 - V2    
     error_rate2 = error_V2/volume2
-    """
-    """
+    surface_area = 2*ellipsoid_CSA_cal(a2,b2)
+    sphere_radius = radius_cal(surface_area)
+    ratio = sphere_radius / max(a2,b2)
+    Volume_sphere = sphere_volume_cal(sphere_radius)
+    error = rel_error(Volume_sphere,V2)
+    error_ratio = rel_error(ratio,0.7627)
+    assert(abs(error) <= 0.1)
+    assert(abs(error_ratio) <= 0.1)
+    print(f"Ratio of radii {ratio}")
+    print(f"Volume_arb {V2} meter cube")
+    print(f"Volume_sphere {Volume_sphere} meter cube")
+    print(f"Error {error} meter square")
+    print("\n")
+
+
     #case 4: red
+    print("RED") 
     test_weight_3 = 0.062 + 0.0337
     a3 = 0.658/2
     b3 = 0.658/2
@@ -161,9 +193,24 @@ if __name__=="__main__":
     volume3 = volume_cal(test_weight_3) # m^3
     error_V3 = volume3 - V3    
     error_rate3 = error_V3/volume3
-    """
-    """ 
+    
+    surface_area = 2*ellipsoid_CSA_cal(a3,b3)
+    sphere_radius = radius_cal(surface_area)
+    ratio = sphere_radius / max(a3,b3)
+    Volume_sphere = sphere_volume_cal(sphere_radius)
+    error = rel_error(Volume_sphere,V3)
+    error_ratio = rel_error(ratio,0.7627)
+    assert(abs(error) <= 0.1)
+    assert(abs(error_ratio) <= 0.1) 
+    print(f"Ratio of radii {ratio}")
+    print(f"Volume_arb {V3} meter cube")
+    print(f"Volume_sphere {Volume_sphere} meter cube")
+    print(f"Error {error} meter square")
+    print("\n")
+
+   
     # case 5: triangle
+    print("TRIANGLE")
     test_weight_4 = 0.0576 + 0.0317
     a4 = 0.709
     b4 = 0.705
@@ -178,36 +225,19 @@ if __name__=="__main__":
     eq_cir = a4 * b4/2
     radi = np.sqrt(eq_cir/pi)
     tick = radi * 2 * 0.599
-    """ 
 
-    # Red Spherical balloon
-    print("CASE I - RED SPHERICAL BALLOON") 
-    radi = (88 / 2) * 0.01 # Meters
-    dim = [radi,radi]
-    test_hypo(dim)
-
-    print("\n")
-
-    print("CASE II - BLACK SPHERICAL BALLOON")
-    radi = (80 / 2) * 0.01 # Meters
-    dim = [radi,radi]
-    test_hypo(dim)
-
-    print("\n")
-
-    print("CASE III - HEART SHAPED BALLOON")
-    a = (87.6 / 2) * 0.01 # Meters
-    b = (85 / 2) * 0.01 # Meters
-    dim = [a,b]
-    test_hypo(dim)
-
-    print("\n")
-
-    print("CASE IV - CLOWN FISH")
-    a = (313 / 2) * 0.01 # Meters
-    b = (124) * 0.01 # Meters
-    dim = [a,b]
-    test_hypo(dim)
-
-    
+    surface_area = 2*ellipsoid_CSA_cal(a4/2,b4/2)
+    sphere_radius = radius_cal(surface_area)
+    ratio = sphere_radius / radi
+    Volume_sphere = sphere_volume_cal(sphere_radius)
+    error = rel_error(Volume_sphere,V4)
+    error_ratio = rel_error(ratio,0.7627)
+    assert(abs(error) <= 0.1)
+    assert(abs(error_ratio) <= 0.15)
+    print(f"Ratio of radii {ratio}")
+    print(f"Volume_arb {V4} meter cube")
+    print(f"Volume_sphere {Volume_sphere} meter cube")
+    print(f"Error {error} meter square")
+    print("\n") 
+  
     print("DONE") 
