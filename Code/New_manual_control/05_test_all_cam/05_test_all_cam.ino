@@ -122,10 +122,10 @@ BLYNK_WRITE(V3){
     myservo.write(90);
     V_back();
     }else if(x_1 == -1 && y_1 == 0){
-    myservo.write(140);
+    myservo.write(160);
     V_forw();
   }else if(x_1 == 1 && y_1 == 0){
-    myservo.write(40);
+    myservo.write(20);
     V_forw();
   }
 }
