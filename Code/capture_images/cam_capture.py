@@ -11,11 +11,12 @@ if __name__ == '__main__':
         k = cv2.waitKey(10)
 
         if k == ord('c'):
-            cv2.imwrite(f'Images/1280_1080/test_success.jpg', img)
+            now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
+            cv2.imwrite(f'Images/1280_1080/{now}.jpg', img)
         elif k == ord('q'):
             break
 
         cv2.imshow("image", img)
 
-    cap.realse()
+    # cap.realse()
     cv2.destroyAllWindows()
