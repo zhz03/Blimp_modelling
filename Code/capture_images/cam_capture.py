@@ -13,9 +13,9 @@ if __name__ == '__main__':
             continue
         k = cv2.waitKey(10)
 
-        if k == ord('c'):
+        if k == ord('z'):
             now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
-            now = "test"
+            # now = "test"
             cv2.imwrite(f'Images/1280_1080/{now}.jpg', img1)
             cv2.imwrite(f'Images/1024_768/{now}.jpg', img2)
             cv2.imwrite(f'Images/800_600/{now}.jpg', img3)
