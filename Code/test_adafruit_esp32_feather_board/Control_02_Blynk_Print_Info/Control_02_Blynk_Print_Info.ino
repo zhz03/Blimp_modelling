@@ -35,8 +35,11 @@ void loop()
 BLYNK_WRITE(V0){
   int x_0 = param[0].asInt();
   int y_0 = param[1].asInt();
-  if(x_0=!0 || y_0=!0){
-    Serial.print("%d \t %d ",x_0,y_0);
+  if(x_0 != 0 || y_0 != 0){
+    Serial.print("x_0:");
+    Serial.print(x_0);
+    Serial.print("y_0:");
+    Serial.print(y_0);
     Serial.print("\n"); 
   }
   
