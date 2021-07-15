@@ -27,32 +27,32 @@ void setup() {
 }
 
 void forward(){
-     myMotor2->run(FORWARD);
+     myMotor1->run(FORWARD);
      myMotor4->run(FORWARD);
 }
 
 void backward(){
-     myMotor2->run(BACKWARD);
+     myMotor1->run(BACKWARD);
      myMotor4->run(BACKWARD);
 }
 
 void up(){
-     myMotor1->run(FORWARD);
+     myMotor2->run(FORWARD);
      myMotor3->run(FORWARD);
 }
 
 void down(){
-     myMotor1->run(BACKWARD);
+     myMotor2->run(BACKWARD);
      myMotor3->run(BACKWARD);
 }
 
 void stopfb(){
-     myMotor2->run(RELEASE);
+     myMotor1->run(RELEASE);
      myMotor4->run(RELEASE);
 }
 
 void stopud(){
-     myMotor1->run(RELEASE);
+     myMotor2->run(RELEASE);
      myMotor3->run(RELEASE);
 }
 
@@ -70,15 +70,25 @@ void loop() {
 BLYNK_WRITE(V0){
   int x_0 = param[0].asInt();
   int y_0 = param[1].asInt();
-  
+  if (x_0 ==0 && y_0==0){
+    stopfb();
+  }else if(x_0==1 && y_0==0){
+    forward();
+  }else if(x_0 ==-1 && y_0 ==0){
+    backward();
+  }
 }
 
 BLYNK_WRITE(V1){
   int x_1 = param[0].asInt();
   int y_1 = param[1].asInt();
-  if (x_1 ==0 &&x_2==0){
+  if (x_1 ==0 && y_1==0){
     stopud();
-  }else if(x_1==1)
+  }else if(x_1==1 && y_1==0){
+    up();
+  }else if(x_1 ==-1 && y_1 ==0){
+    down();
+  }
 }
 
 BLYNK_WRITE(V2){
