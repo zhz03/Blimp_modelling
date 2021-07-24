@@ -2,9 +2,14 @@
 
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
-#include <WiFi.h>
-#include <WiFiClient.h>
-#include <BlynkSimpleEsp32.h>
+
+// uncomment this if you're using ESP32
+// #include <BlynkSimpleEsp32.h>
+//#include <WiFi.h>
+//#include <WiFiClient.h>
+// uncomment these two line if you're using ESP8266
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
 
 char auth[] = "cLUKk5penym7JGnFxo61dvNzG5p4y4Za";
 
