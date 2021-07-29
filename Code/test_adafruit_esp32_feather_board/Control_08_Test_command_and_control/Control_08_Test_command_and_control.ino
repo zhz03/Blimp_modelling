@@ -141,11 +141,18 @@ void M4_forward(){
 }
 
 void M4_backward(){
-  myMotor3->run(BACKWARD);
+  myMotor4->run(BACKWARD);
 }
 
 void M4_stop(){
   myMotor4->run(RELEASE);
+}
+
+void SpeedControl(int Speed){
+    myMotor1->setSpeed(Speed);
+    myMotor2->setSpeed(Speed);
+    myMotor3->setSpeed(Speed);
+    myMotor4->setSpeed(Speed);
 }
 
 void setup()
@@ -174,4 +181,127 @@ void setup()
 void loop()
 {
   Blynk.run();
+}
+
+BLYNK_WRITE(V0){ 
+  int x_0 = param[0].asInt();
+  int y_0 = param[1].asInt();
+  if (x_0 ==0 && y_0==0){
+    M1_stop();
+    M2_stop();
+    M3_stop();
+    M4_stop();
+  }else if(x_0==0 && y_0==1){ // forward
+    if (M_1 == 1){
+      M1_forward();
+    }else if(M_1 == 2){
+      M1_backward();
+    }
+    if (M_2 == 1){
+      M2_forward();
+    }else if(M_2 == 2){
+      M2_backward();
+    }
+    
+    if (M_3 == 1){
+      M3_forward();
+    }else if(M_3 == 2){
+      M3_backward();
+    }
+    
+    if (M_4 == 1){
+      M4_forward();
+    }else if(M_4 == 2){
+      M4_backward();
+    }
+    
+  }else if(x_0==0 && y_0==-1 ){ // backward
+     if (M_1 == 1){
+      M1_backward();
+    }else if(M_1 == 2){
+      M1_forward();
+    }
+    
+    if (M_2 == 1){
+      
+      M2_backward();
+    }else if(M_2 == 2){
+      M2_forward();
+    }
+    
+    if (M_3 == 1){
+      M3_backward();
+    }else if(M_3 == 2){
+      M3_forward();
+    }
+    
+    if (M_4 == 1){
+      M4_backward();
+    }else if(M_4 == 2){
+      M4_forward();
+    }
+    
+  }//else if(x_0==1 && y_0==0 ){ // turn right 
+    
+  //}else if(x_0 ==-1 && y_0 ==0){ // turn left 
+    
+  //}
+}
+
+BLYNK_WRITE(V1){
+  int x_1 = param[0].asInt();
+  int y_1 = param[1].asInt();
+  if (x_1 ==0 && y_1==0){
+    M1_stop();
+    M2_stop();
+    M3_stop();
+    M4_stop();
+  }else if(x_1==0 && y_1==1){ // up 
+    if (M_1 == 3){
+      M1_forward();
+    }else if(M_1 == 4){
+      M1_backward();
+    }
+    if (M_2 == 3){
+      M2_forward();
+    }else if(M_2 == 4){
+      M2_backward();
+    }
+    if (M_3 == 3){
+      M3_forward();
+    }else if(M_3 == 4){
+      M3_backward();
+    }
+    if (M_4 == 3){
+      M4_forward();
+    }else if(M_4 == 4){
+      M4_backward();
+    }
+  }else if(x_1 ==0 && y_1 ==-1){ // down
+    if (M_1 == 3){
+      M1_backward();
+    }else if(M_1 == 4){
+      M1_forward();
+    }
+    if (M_2 == 3){
+      M2_backward();
+    }else if(M_2 == 4){
+      M2_forward();
+    }
+    if (M_3 == 3){
+      M3_backward();
+    }else if(M_3 == 4){
+      M3_forward();
+    }
+    if (M_4 == 3){
+      M4_backward();
+    }else if(M_4 == 4){
+      M4_forward();
+    }
+  }
+}
+
+BLYNK_WRITE(V2){
+  int Speed = param.asInt();
+  SpeedControl(Speed);
 }
