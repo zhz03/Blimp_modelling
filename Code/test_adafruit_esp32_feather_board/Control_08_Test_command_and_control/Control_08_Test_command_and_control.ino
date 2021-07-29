@@ -47,6 +47,8 @@ BLYNK_WRITE(V3)
     M_1 = 3;
   }else if(command[1] == 'D'){
     M_1 = 4;
+  }else{
+    terminal.println(F("Command has errors!!!"));
   }
 
   if (command[3] == 'F'){
@@ -57,6 +59,8 @@ BLYNK_WRITE(V3)
     M_2 = 3;
   }else if(command[3] == 'D'){
     M_2 = 4;
+  }else{
+    terminal.println(F("Command has errors!!!"));
   }
 
   if (command[5] == 'F'){
@@ -67,6 +71,8 @@ BLYNK_WRITE(V3)
     M_3 = 3;
   }else if(command[5] == 'D'){
     M_3 = 4;
+  }else{
+    terminal.println(F("Command has errors!!!"));
   }
 
   if (command[7] == 'F'){
@@ -77,6 +83,8 @@ BLYNK_WRITE(V3)
     M_4 = 3;
   }else if(command[7] == 'D'){
     M_4 = 4;
+  }else{
+    terminal.println(F("Command has errors!!!"));
   }
 
   //terminal.write(M_1);
