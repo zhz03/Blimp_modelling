@@ -144,12 +144,14 @@ void M4_control(int flag){
   }
 }
 
-void FBUD(int index1,int index2, int a,int b){
-     if (M_1 == index1){
+void FBUD(int index1,int index2, int a,int b,int Mindex){
+    if (Mindex == 0){
+     if (M_1 == index1){ // for all 
       M1_control(a);
     }else if(M_1 == index2){
      M1_control(b);
     }
+    
     if (M_2 == index1){
       M2_control(a);
     }else if(M_2 == index2){
@@ -166,6 +168,31 @@ void FBUD(int index1,int index2, int a,int b){
       M4_control(a);
     }else if(M_4 == index2){
       M4_control(b);
+    }
+    }else if(Mindex == 1){ // for motor 1
+     if (M_1 == index1){
+      M1_control(a);
+    }else if(M_1 == index2){
+     M1_control(b);
+    }
+    }else if(Mindex == 2){ // for motor 2
+     if (M_2 == index1){
+      M2_control(a);
+    }else if(M_2 == index2){
+      M2_control(b);
+    }
+    }else if(Mindex ==3){ // for motor 3
+     if (M_3 == index1){
+      M3_control(a);
+    }else if(M_3 == index2){
+      M3_control(b);
+    }
+    }else if(Mindex==4){ // for motor 4
+     if (M_4 == index1){
+      M4_control(a);
+    }else if(M_4 == index2){
+      M4_control(b);
+    }
     }
 }
 
@@ -218,14 +245,14 @@ BLYNK_WRITE(V0){
   if (x_0 ==0 && y_0==0){
    Allmotors_control(0);
   }else if(x_0==0 && y_0==1){ // forward
-    FBUD(1,2,1,2);
+    FBUD(1,2,1,2,0);
   }else if(x_0==0 && y_0==-1 ){ // backward
-    FBUD(1,2,2,1);
-  }//else if(x_0==1 && y_0==0 ){ // turn right 
-    
-  //}else if(x_0 ==-1 && y_0 ==0){ // turn left 
-    
-  //}
+    FBUD(1,2,2,1,0);
+  }else if(x_0==1 && y_0==0 ){ // turn right 
+    FBUD(1,2,1,2,Rindex);
+  }else if(x_0 ==-1 && y_0 ==0){ // turn left 
+    FBUD(1,2,1,2,Lindex);
+  }
 }
 
 BLYNK_WRITE(V1){
@@ -234,9 +261,9 @@ BLYNK_WRITE(V1){
   if (x_1 ==0 && y_1==0){
     Allmotors_control(0);
   }else if(x_1==0 && y_1==1){ // up 
-    FBUD(3,4,1,2);
+    FBUD(3,4,1,2,0);
   }else if(x_1 ==0 && y_1 ==-1){ // down
-    FBUD(3,4,2,1);
+    FBUD(3,4,2,1,0);
   }
 }
 
