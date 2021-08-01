@@ -35,69 +35,48 @@ String command = "";
 // You can send commands from Terminal to your hardware. Just use
 // the same Virtual Pin as your Terminal Widget
 
+void FBUD_command(int ch, String command){
+    if (command[ch] == 'F'){
+    if(ch==1){M_1 = 1;}
+    else if(ch==3){
+    M_2 = 1;}else if(ch==5){
+    M_3 = 1;}else if(ch==7){
+   M_4 = 1;
+    }  
+  }else if(command[ch] == 'B'){
+    if(ch==1){M_1 = 2;}
+    else if(ch==3){
+    M_2 = 2;}else if(ch==5){
+    M_3 = 2;}else if(ch==7){
+   M_4 = 2;
+    }
+  }else if(command[ch] == 'U'){
+    if(ch==1){M_1 = 3;}
+    else if(ch==3){
+    M_2 = 3;}else if(ch==5){
+    M_3 = 3;}else if(ch==7){
+   M_4 = 3;
+    }
+  }else if(command[ch] == 'D'){
+    if(ch==1){M_1 = 4;}
+    else if(ch==3){
+    M_2 = 4;}else if(ch==5){
+    M_3 = 4;}else if(ch==7){
+   M_4 = 4;
+    }
+  }else{
+    terminal.println(F("Command has errors!!!"));
+  }
+}
+
 BLYNK_WRITE(V3)
 {
   command = param.asStr();
   // command example: <1F2F3U4D>
-
-  if (command[1] == 'F'){
-    M_1 = 1;
-  }else if(command[1] == 'B'){
-    M_1 = 2;
-  }else if(command[1] == 'U'){
-    M_1 = 3;
-  }else if(command[1] == 'D'){
-    M_1 = 4;
-  }else{
-    terminal.println(F("Command has errors!!!"));
-  }
-
-  if (command[3] == 'F'){
-    M_2 = 1;
-  }else if(command[3] == 'B'){
-    M_2 = 2;
-  }else if(command[3] == 'U'){
-    M_2 = 3;
-  }else if(command[3] == 'D'){
-    M_2 = 4;
-  }else{
-    terminal.println(F("Command has errors!!!"));
-  }
-
-  if (command[5] == 'F'){
-    M_3 = 1;
-  }else if(command[5] == 'B'){
-    M_3 = 2;
-  }else if(command[5] == 'U'){
-    M_3 = 3;
-  }else if(command[5] == 'D'){
-    M_3 = 4;
-  }else{
-    terminal.println(F("Command has errors!!!"));
-  }
-
-  if (command[7] == 'F'){
-    M_4 = 1;
-  }else if(command[7] == 'B'){
-    M_4 = 2;
-  }else if(command[7] == 'U'){
-    M_4 = 3;
-  }else if(command[7] == 'D'){
-    M_4 = 4;
-  }else{
-    terminal.println(F("Command has errors!!!"));
-  }
-
-  //terminal.write(M_1);
-  //terminal.write(M_2);
-  //terminal.write(M_3);
-  //terminal.write(M_4);
-  //terminal.println(F("-------------"));
-  Serial.print(M_1);
-  Serial.print(M_2);
-  Serial.print(M_3);
-  Serial.println(M_4);
-  // Ensure everything is sent
+  FBUD_command(1,command);
+  FBUD_command(3,command);
+  FBUD_command(5,command);
+  FBUD_command(7,command);
   terminal.flush();
 }
 
