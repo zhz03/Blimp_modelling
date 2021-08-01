@@ -23,29 +23,42 @@ String command = "";
 BLYNK_WRITE(V3)
 {
   command = param.asStr();
-  
+   char c9 = command[9]; // channel number 
+   char c10 = command[10]; // L or R
+   char c11 = command[11]; // channel number
+   char c12 = command[12]; // L or R
   // Serial.write(command[2]);
   if (command[8] == 'N'){
     Serial.println("command has not been confirmed");
   }else if(command[8] == 'C'){
     Serial.println("command has been confirmed!");
+    if ( (c10=='L' || c10 == 'R') && (c12=='L' || c12 == 'R')&& (c9 == '1' || c9 == '2' || c9 == '3' || c9 == '4') && (c11 == '1' || c11 == '2' || c11 == '3' || c11 == '4')){
+      
+      Serial.print(c9);
+      Serial.print("is");
+      Serial.println(c10); 
+      Serial.print(c11);
+      Serial.print("is");
+      Serial.println(c12);
+      Serial.println("All command is now confirmed and correct!");
+      
+    }else{
+      Serial.println("Direction command has been assigned incorrectly!!!");
+      }
   }else{
     Serial.println("Command has errors!!!");
   }
- /*
-  if (command[9] == "1" || command[9] == "2" || command[9] == "3" || command[9] == "4"){
-    int a = command[9].toInt();
-    Serial.print("The channel is:");
-    Serial.print(a);
-  }else if(command[8] =='C' && (command[9] != "L" || command[9] != "R")){
-    Serial.println("No direction has been specified");
-  }
-   */
-   if (command[9] == '1'){
+/*
+   if (command[9] == '1' || command[9] == '2' || command[9] == '3' || command[9] == '4'){
      int a = command[9] - '0';
      Serial.print("The channel is:");
      Serial.print(a);
-   }
+   }else if(command[8] =='C' && (command[9] != 'L' || command[9] != 'R')){
+    Serial.println("No direction has been specified");
+  }
+*/
+
+  
   // Ensure everything is sent
   terminal.flush();
 }
