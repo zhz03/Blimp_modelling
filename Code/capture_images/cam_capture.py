@@ -3,6 +3,7 @@ import time
 
 if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
+    count = 0
     while True:
         ret, frame = cap.read()
         img1 = cv2.resize(frame,(1280,1080))
@@ -15,6 +16,15 @@ if __name__ == '__main__':
 
         if k == ord('z'):
             now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
+            # now = "test"
+            cv2.imwrite(f'Images/1280_1080/{now}.jpg', img1)
+            cv2.imwrite(f'Images/1024_768/{now}.jpg', img2)
+            cv2.imwrite(f'Images/800_600/{now}.jpg', img3)
+            cv2.imwrite(f'Images/640_480/{now}.jpg', img4)
+        elif k == ord('c'):
+            now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
+            now = now + "_Experiment_" +str(count)
+            count += 1
             # now = "test"
             cv2.imwrite(f'Images/1280_1080/{now}.jpg', img1)
             cv2.imwrite(f'Images/1024_768/{now}.jpg', img2)
