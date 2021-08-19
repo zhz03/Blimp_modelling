@@ -10,7 +10,7 @@
 char auth[] = "cLUKk5penym7JGnFxo61dvNzG5p4y4Za";
 
 // Your WiFi credentials.
-// Set password to "" for open networks.
+//  Set password to "" for open networks.
 char ssid[] = "lemur";
 char pass[] = "lemur9473";
 
@@ -23,7 +23,7 @@ BLYNK_WRITE(V3)
 {
 
   // if you type "Marco" into Terminal Widget - it will respond: "Polo:"
-  if (String("Marco") == param.asStr()) {
+  if (String("Marco") ==  param.asStr()) {
     terminal.println("You said: 'Marco'") ;
     terminal.println("I said: 'Polo'") ;
   } else {
@@ -37,6 +37,7 @@ BLYNK_WRITE(V3)
   // Ensure everything is sent
   terminal.flush();
 }
+
 
 void setup()
 {

@@ -26,8 +26,6 @@ BLYNK_WRITE(V3)
   
   // if you type "Marco" into Terminal Widget - it will respond: "Polo:"
   terminal.write(command[2]);
-  
-
   // Ensure everything is sent
   terminal.flush();
 }

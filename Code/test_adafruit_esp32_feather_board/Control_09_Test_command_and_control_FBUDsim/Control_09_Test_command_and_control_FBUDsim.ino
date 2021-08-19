@@ -62,7 +62,7 @@ void FBUD_command(int ch, String command){
     else if(ch==3){
     M_2 = 4;}else if(ch==5){
     M_3 = 4;}else if(ch==7){
-   M_4 = 4;
+    M_4 = 4;
     }
   }else{
     terminal.println(F("Command has errors!!!"));
@@ -121,11 +121,12 @@ void M4_control(int flag){
 }
 
 void FBUD(int index1,int index2, int a,int b){
-     if (M_1 == index1){
+    if (M_1 == index1){
       M1_control(a);
     }else if(M_1 == index2){
      M1_control(b);
     }
+    
     if (M_2 == index1){
       M2_control(a);
     }else if(M_2 == index2){
@@ -188,16 +189,14 @@ void loop()
 }
 
 BLYNK_WRITE(V0){ 
-  int x_0 = param[0].asInt();
+  int x_0 = param[0].asInt();    
   int y_0 = param[1].asInt();
   if (x_0 ==0 && y_0==0){
    Allmotors_control(0);
   }else if(x_0==0 && y_0==1){ // forward
     FBUD(1,2,1,2);
-    
   }else if(x_0==0 && y_0==-1 ){ // backward
     FBUD(1,2,2,1);
-    
   }//else if(x_0==1 && y_0==0 ){ // turn right 
     
   //}else if(x_0 ==-1 && y_0 ==0){ // turn left 
