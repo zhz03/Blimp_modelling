@@ -15,6 +15,8 @@ char auth[] = "cLUKk5penym7JGnFxo61dvNzG5p4y4Za";
 //  Set password to "" for open networks.
 char ssid[] = "lemur";
 char pass[] = "lemur9473";
+// char ssid[] = "Hippocampus_VR2.4G";
+// char pass[] = "hippocampus123";
 
 // Attach virtual serial terminal to Virtual Pin V1
 WidgetTerminal terminal(V3);
