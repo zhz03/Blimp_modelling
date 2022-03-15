@@ -1,4 +1,4 @@
-# 209_project_Blimp_modelling
+# Blimp_modelling
 
 Some links for internal group members:
 
